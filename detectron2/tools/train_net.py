@@ -20,6 +20,7 @@ import logging
 import os
 from collections import OrderedDict
 import torch
+from register_isaid import *
 
 import detectron2.utils.comm as comm
 from detectron2.checkpoint import DetectionCheckpointer
@@ -119,6 +120,7 @@ def setup(args):
     Create configs and perform basic setups.
     """
     cfg = get_cfg()
+    print(cfg)
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
     if args.resume:
